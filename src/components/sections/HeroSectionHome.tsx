@@ -66,7 +66,7 @@ const HeroSectionHome = () => {
         transition={{ duration: 0.6, delay: 0.4 }}
       >
         <motion.a
-          href="https://github.com/Nizar-Dev"
+          href="#"
           target="_blank"
           className="flex items-center gap-2 hover:text-indigo-500 transition-colors duration-300"
           initial={{ opacity: 0, x: -20 }}
@@ -85,7 +85,7 @@ const HeroSectionHome = () => {
         </motion.a>
 
         <motion.a
-          href="https://github.com/Nizar-Dev"
+          href="https://github.com/nizararfanni"
           target="_blank"
           className="flex items-center gap-2 hover:text-purple-600 transition-colors duration-300"
           initial={{ opacity: 0, x: -20 }}
@@ -104,7 +104,7 @@ const HeroSectionHome = () => {
         </motion.a>
 
         <motion.a
-          href="https://github.com/Nizar-Dev"
+          href="https://github.com/nizararfanni"
           target="_blank"
           className="flex items-center gap-2 hover:text-pink-500 transition-colors duration-300"
           initial={{ opacity: 0, x: -20 }}

@@ -22,6 +22,7 @@ import {
 } from "../ui/tooltip";
 import { RiTailwindCssFill } from "react-icons/ri";
 import { motion } from "motion/react";
+import { FaFigma } from "react-icons/fa";
 
 const LangauageLearned = () => {
   const skills = [
@@ -38,6 +39,7 @@ const LangauageLearned = () => {
     { icon: SiGit, name: "Git", color: "text-orange-500" },
     { icon: SiGithub, name: "GitHub", color: "text-gray-700" },
     { icon: RiTailwindCssFill, name: "Tailwind CSS", color: "text-sky-400" },
+    { icon: FaFigma, name: "figma", color: "text-red-400" },
   ];
 
   return (
@@ -55,7 +57,7 @@ const LangauageLearned = () => {
         transition={{ duration: 0.6, ease: "easeOut" }}
         className="text-2xl font-bold mb-8 text-center"
       >
-        Tools & Tech I Play With 🛠️
+        Tools & Tech I Play With
       </motion.h2>
 
       <TooltipProvider>
@@ -89,7 +91,7 @@ const LangauageLearned = () => {
         transition={{ duration: 0.6, ease: "easeOut" }}
         className="text-center text-muted-foreground mt-6 text-sm"
       >
-        Always learning, always building something cool ✨
+        Always learning, always building something cool
       </motion.p>
     </motion.div>
   );

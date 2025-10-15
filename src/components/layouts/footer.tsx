@@ -58,7 +58,7 @@ const Footer = () => {
             <p className="text-muted-foreground text-sm leading-relaxed">
               Passionate software developer who loves crafting digital
               experiences. Always curious, always learning, always building
-              something cool! 🚀
+              something cool! 
             </p>
             <div className="flex items-center space-x-2">
               <FaCode className="text-primary w-4 h-4" />
@@ -145,7 +145,7 @@ const Footer = () => {
           </div>
 
           <div className="text-sm text-muted-foreground">
-            <span className="italic">"Code is poetry in motion" ✨</span>
+            <span className="italic">"illusion of knowledge" </span>
           </div>
         </div>
       </div>

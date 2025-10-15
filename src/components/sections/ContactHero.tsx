@@ -37,7 +37,7 @@ const ContactHero = () => {
         transition={{ duration: 0.6, delay: 0.6 }}
         className="text-sm text-muted-foreground"
       >
-        ✨ Available for freelance projects and full-time opportunities
+         Available for freelance projects and full-time opportunities
       </motion.div>
     </motion.section>
   );

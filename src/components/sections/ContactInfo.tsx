@@ -10,24 +10,24 @@ const ContactInfo = () => {
     {
       icon: <FaEnvelope />,
       title: "Email",
-      value: "nizar.arfanni@example.com",
-      link: "mailto:nizar.arfanni@example.com",
-      color: "text-red-500"
+      value: "nizararfan22@gmail.com",
+      link: "mailto:nizararfan22@gmail.com",
+      color: "text-red-500",
     },
     {
       icon: <FaPhone />,
       title: "Phone",
-      value: "+62 812-3456-7890",
-      link: "tel:+628123456790",
-      color: "text-green-500"
+      value: "+62 057-1329-6658",
+      link: "tel:+6285713296658",
+      color: "text-green-500",
     },
     {
       icon: <FaMapMarkerAlt />,
       title: "Location",
-      value: "Jakarta, Indonesia",
+      value: "Tegal, Indonesia",
       link: "https://maps.google.com",
-      color: "text-blue-500"
-    }
+      color: "text-blue-500",
+    },
   ];
 
   const socialLinks = [
@@ -52,7 +52,7 @@ const ContactInfo = () => {
     {
       icon: <FaInstagram />,
       name: "Instagram",
-      url: "https://instagram.com/nizar.arfanni",
+      url: "https://instagram.com/nzr_arfan",
       color: "text-pink-500"
     }
   ];
@@ -152,31 +152,7 @@ const ContactInfo = () => {
         </div>
       </div>
 
-      {/* Availability Status */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6, delay: 0.8 }}
-      >
-        <Card className="p-6 bg-gradient-to-r  from-green-500/20 via-emerald-500/20 to-teal-500/20">
-          <div className="flex items-center gap-3 mb-3">
-            <motion.div
-              animate={{ scale: [1, 1.2, 1] }}
-              transition={{ duration: 2, repeat: Infinity }}
-              className="w-3 h-3 bg-green-500 rounded-full"
-            />
-            <h3 className="text-lg font-semibold text-green-600 dark:text-green-400">
-              Currently Available
-            </h3>
-          </div>
-          <p className="text-muted-foreground">
-            I'm currently open to new opportunities and exciting projects. 
-            Let's discuss how we can work together!
-          </p>
-        </Card>
-      </motion.div>
-
+    
       {/* Call to Action */}
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}

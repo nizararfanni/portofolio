@@ -7,10 +7,10 @@ const EducationSection = () => {
   const education = [
     {
       degree: "Bachelor of Computer Science",
-      institution: "Universitas Indonesia",
-      period: "2020 - 2024",
-      gpa: "3.8/4.0",
-      description: "Specialized in Software Engineering with focus on web development and system design.",
+      institution: "Universitas Pancasakti Tegal",
+      period: "2023 - now",
+      gpa: "3.81/4.0",
+      description: "Specialized in Software Engineering with focus on web development,apps and design.",
     },
   ];
 

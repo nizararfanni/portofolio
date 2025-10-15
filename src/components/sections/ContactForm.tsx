@@ -26,14 +26,14 @@ const ContactForm = () => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
+    //dekayl
     await new Promise(resolve => setTimeout(resolve, 2000));
     
     // Reset form
     setFormData({ name: "", email: "", subject: "", message: "" });
     setIsSubmitting(false);
     
-    // You would typically send the data to your backend here
+    
     alert("Message sent successfully! Thank you for reaching out.");
   };
 
@@ -161,7 +161,7 @@ const ContactForm = () => {
                   Sending...
                 </div>
               ) : (
-                "Send Message 🚀"
+                "Send Message"
               )}
             </Button>
           </motion.div>
