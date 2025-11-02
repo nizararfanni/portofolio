@@ -1,7 +1,6 @@
-
 import DetailsMore from "@/components/sections/DetailsMore";
 import HeroText from "@/components/sections/HeroText";
-import LangauageLearned from "@/components/sections/LangauageLearned";
+import LanguageLearned from "@/components/sections/LanguageLearned";
 import LatestsProjects from "@/components/sections/LatestsProjects";
 
 export default function Home() {
@@ -13,7 +12,7 @@ export default function Home() {
       </div>
       <LatestsProjects />
       <DetailsMore />
-      <LangauageLearned />
+      <LanguageLearned />
     </main>
   );
 }
