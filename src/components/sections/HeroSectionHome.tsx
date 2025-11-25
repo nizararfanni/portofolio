@@ -7,7 +7,6 @@ import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { MdOutlineTask } from "react-icons/md";
 
 const HeroSectionHome = () => {
-
   return (
     <motion.main
       className="mt-2"
@@ -34,7 +33,7 @@ const HeroSectionHome = () => {
           <Button
             variant={"outline"}
             asChild
-            className="text-md  text-white transition-all duration-300 ease-in-out hover:scale-105 border-white border-2"
+            className="text-md   transition-all duration-300 ease-in-out hover:scale-105 "
           >
             <Link href="/projects">See my projects</Link>
           </Button>
@@ -51,7 +50,7 @@ const HeroSectionHome = () => {
           <Button
             variant="outline"
             asChild
-            className="text-md  text-white transition-all duration-300 ease-in-out hover:scale-105 border-white border-2"
+            className="text-md  transition-all duration-300 ease-in-out hover:scale-105 "
           >
             <Link href="/about">Learn About Me</Link>
           </Button>

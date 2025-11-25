@@ -8,12 +8,14 @@ import {
   NavigationMenuList,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
+import ThemeSwitcher from "./ThemeSwitcher";
 
 const navigationItems = [
   { title: "Home", href: "/" },
   { title: "Projek", href: "/projects" },
   { title: "About", href: "/about" },
   { title: "Contact", href: "/contact" },
+  // { title: "Blog", href: "/blog" },
 ];
 
 export default function Navbar() {
@@ -35,7 +37,7 @@ export default function Navbar() {
                     isActive
                       ? "from-indigo-500 via-purple-600 to-pink-500 bg-clip-text text-transparent underline underline-offset-4"
                       : "text-muted-foreground"
-                  } font-bold text-sm md:text-lg bg-gradient-to-r `}
+                  } font-bold text-xs md:text-lg bg-gradient-to-r `}
                 >
                   {item.title}
                 </NavigationMenuLink>
@@ -43,6 +45,7 @@ export default function Navbar() {
             );
           })}
         </NavigationMenuList>
+        <ThemeSwitcher />
       </NavigationMenu>
     </div>
   );

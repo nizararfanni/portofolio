@@ -6,22 +6,11 @@ import { Card } from "@/components/ui/card";
 const ExperienceSection = () => {
   const experiences = [
     {
-      role: "Frontend Developer",
-      company: "TechStart Indonesia",
-      period: "2023 - Present",
-      description: "Building modern web applications using React, Next.js, and TypeScript. Working on user-centric interfaces with responsive design.",
-    },
-    {
-      role: "Full Stack Developer Intern",
-      company: "Digital Solutions Co.",
-      period: "2022 - 2023",
-      description: "Developed REST APIs using Node.js and Express. Created database schemas and implemented authentication systems.",
-    },
-    {
-      role: "Junior Web Developer",
-      company: "Creative Web Studio",
-      period: "2021 - 2022",
-      description: "Collaborated on various client projects, focusing on frontend development and UI/UX implementation.",
+      role: "Industrial Work Practice Intern",
+      company: "PROCOM",
+      period: "May 2022 - July 2022",
+      description:
+        "Completed a 2-month industrial internship focused on practical technology workflows. Gained hands-on experience in a professional computing environment, contributing to real-world projects and learning from industry mentors.",
     },
   ];
 
@@ -56,13 +45,17 @@ const ExperienceSection = () => {
               <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
                 <div>
                   <h3 className="text-xl font-semibold mb-1">{exp.role}</h3>
-                  <p className="text-lg text-muted-foreground font-medium">{exp.company}</p>
+                  <p className="text-lg text-muted-foreground font-medium">
+                    {exp.company}
+                  </p>
                 </div>
                 <span className="text-sm bg-gradient-to-r from-indigo-500 via-purple-600 to-pink-500 bg-clip-text text-transparent font-semibold mt-2 md:mt-0">
                   {exp.period}
                 </span>
               </div>
-              <p className="text-muted-foreground leading-relaxed">{exp.description}</p>
+              <p className="text-muted-foreground leading-relaxed">
+                {exp.description}
+              </p>
             </Card>
           </motion.div>
         ))}

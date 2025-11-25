@@ -17,3 +17,12 @@ export const postArticles = async (article: Article): Promise<Article> => {
   );
   return res.data;
 };
+
+//fungsi buat lihat detail article
+// lib
+export const getArticlesByid = async (
+  id: string
+): Promise<{ data: Article }> => {
+  const res: AxiosResponse<{ data: Article }> = await api.get(`/Articles/${id}`);
+  return res.data;
+};
