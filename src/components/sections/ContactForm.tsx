@@ -2,39 +2,28 @@
 import React, { useState } from "react";
 import { motion } from "motion/react";
 import { Card } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { ContactFormData, contactFormSchema } from "@/lib/contactFormSchema";
+import axios from "axios";
 
 const ContactForm = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: ""
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: zodResolver(contactFormSchema),
   });
 
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    
-    //dekayl
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    // Reset form
-    setFormData({ name: "", email: "", subject: "", message: "" });
-    setIsSubmitting(false);
-    
-    
-    alert("Message sent successfully! Thank you for reaching out.");
+  const onSubmit = async (data: ContactFormData) => {
+    //kirim ke api
+    try {
+      const response = await axios.post("/api/contact", data);
+      console.log(response.data);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -55,7 +44,7 @@ const ContactForm = () => {
           Send Message
         </motion.h2>
 
-        <form onSubmit={handleSubmit} className="space-y-6">
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -63,18 +52,15 @@ const ContactForm = () => {
             transition={{ duration: 0.6, delay: 0.1 }}
           >
             <label htmlFor="name" className="block text-sm font-medium mb-2">
-              Name *
+              Name
             </label>
             <input
-              type="text"
-              id="name"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              required
+              {...register("name")}
               className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-background focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
-              placeholder="Your full name"
             />
+            {errors.name && (
+              <span className="text-red-500 ">{errors.name.message}</span>
+            )}
           </motion.div>
 
           <motion.div
@@ -87,15 +73,12 @@ const ContactForm = () => {
               Email *
             </label>
             <input
-              type="email"
-              id="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              required
+              {...register("email", { required: true })}
               className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-background focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
-              placeholder="your@email.com"
             />
+            {errors.email && (
+              <span className="text-red-500 ">{errors.email.message}</span>
+            )}
           </motion.div>
 
           <motion.div
@@ -108,15 +91,12 @@ const ContactForm = () => {
               Subject *
             </label>
             <input
-              type="text"
-              id="subject"
-              name="subject"
-              value={formData.subject}
-              onChange={handleChange}
-              required
+              {...register("subject")}
               className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-background focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
-              placeholder="What's this about?"
             />
+            {errors.subject && (
+              <span className="text-red-500 ">{errors.subject.message}</span>
+            )}
           </motion.div>
 
           <motion.div
@@ -129,15 +109,12 @@ const ContactForm = () => {
               Message *
             </label>
             <textarea
-              id="message"
-              name="message"
-              value={formData.message}
-              onChange={handleChange}
-              required
-              rows={6}
-              className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-background focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300 resize-none"
-              placeholder="Tell me about your project or just say hello!"
+              {...register("message")}
+              className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-background focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-300"
             />
+            {errors.message && (
+              <span className="text-red-500 ">{errors.message.message}</span>
+            )}
           </motion.div>
 
           <motion.div
@@ -146,24 +123,12 @@ const ContactForm = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.5 }}
           >
-            <Button
+            <button
               type="submit"
-              disabled={isSubmitting}
-              className="w-full bg-gradient-to-r from-indigo-500 via-purple-600 to-pink-500 hover:from-indigo-600 hover:via-purple-700 hover:to-pink-600 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 disabled:opacity-70 disabled:transform-none"
+              className="w-full bg-purple-500 rounded-md p-3 text-white hover:bg-purple-600 transition-all duration-300"
             >
-              {isSubmitting ? (
-                <div className="flex items-center justify-center gap-2">
-                  <motion.div
-                    animate={{ rotate: 360 }}
-                    transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-                    className="w-5 h-5 border-2 border-white border-t-transparent rounded-full"
-                  />
-                  Sending...
-                </div>
-              ) : (
-                "Send Message"
-              )}
-            </Button>
+              kirim
+            </button>
           </motion.div>
         </form>
       </Card>

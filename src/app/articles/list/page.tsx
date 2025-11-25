@@ -2,6 +2,7 @@
 
 import { useGetArticles } from "@/hooks/useArticles";
 import { Article } from "@/types/Articles";
+import Link from "next/link";
 
 export default function ArticlesPage() {
   const { data, loading, error } = useGetArticles();
@@ -17,12 +18,13 @@ export default function ArticlesPage() {
       {/* menampilkan semua artikel */}
       <div className="space-y-3 w-full max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-1 gap-4">
         {data.map((article: Article) => (
-          <div
+          <Link
             key={article._id}
             className="
           border p-4 rounded bg-white text-black flex flex-col justify-between
           w-full min-h-[250px] sm:min-h-[300px] md:min-h-[350px]
         "
+            href={`/articles/detail/${article._id}`}
           >
             {/* Judul */}
             <p className="font-semibold text-left">{article.text}</p>
@@ -59,7 +61,7 @@ export default function ArticlesPage() {
                   })}
               </p>
             </h1>
-          </div>
+          </Link>
         ))}
       </div>
     </div>

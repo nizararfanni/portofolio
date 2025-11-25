@@ -1,4 +1,4 @@
-import { getArticles, postArticles } from "@/lib/articlesService";
+import { getArticles, getArticlesByid, postArticles } from "@/lib/articlesService";
 import { Article } from "@/types/Articles";
 import { useEffect, useState } from "react";
 
@@ -52,4 +52,27 @@ export const usePostArticle = () => {
   return { postArticle, loading, error };
 };
 
+export const useGetArticlesByid = (id:string) => {
+  const [data, setData] = useState<Article | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<Error | null>(null);
 
+  //panggik api
+  useEffect(() => {
+    const fetchArticles: () => Promise<void> = async () => {
+      try {
+        const articles = await getArticlesByid(id);
+        console.log("data articles", articles);
+        setData(articles.data || null);
+      } catch (error) {
+        setError(error as Error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchArticles();
+  }, [id]);
+
+  return { data, loading, error };
+};
