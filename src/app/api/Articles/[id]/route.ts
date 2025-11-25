@@ -1,14 +1,15 @@
 import connectionMongoDb from "@/lib/mongoose";
 import Articles from "@/models/ArticlesSchema";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
-export async function GET(
-  request: Request,
-  { params }: { params: { id: string } }
-) {
+type Params = {
+  params: { id: string };
+};
+export async function GET(req: NextRequest, { params }: Params) {
+  const { id } = params;
   try {
     await connectionMongoDb();
-    const article = await Articles.findById(params.id);
+    const article = await Articles.findById(id);
     if (!article) {
       return NextResponse.json({ error: "Article not found" }, { status: 404 });
     }

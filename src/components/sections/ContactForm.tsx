@@ -11,7 +11,7 @@ const ContactForm = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isSubmitting },
   } = useForm({
     resolver: zodResolver(contactFormSchema),
   });
@@ -125,9 +125,13 @@ const ContactForm = () => {
           >
             <button
               type="submit"
-              className="w-full bg-purple-500 rounded-md p-3 text-white hover:bg-purple-600 transition-all duration-300"
+              className="w-full bg-purple-500 rounded-md p-3 text-white 
+             transition-all duration-300
+             hover:bg-purple-600
+             disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-purple-500"
+              disabled={isSubmitting}
             >
-              kirim
+              {isSubmitting ? "Mengirim..." : "Kirim"}
             </button>
           </motion.div>
         </form>
