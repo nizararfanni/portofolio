@@ -22,6 +22,10 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "mdx": {
+    // Enable strict type checking in MDX files.
+    "checkMdx": true
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/blog/abc/page.mdx"],
   "exclude": ["node_modules"]
 }
