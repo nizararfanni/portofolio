@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import connectionMongoDb from "@/lib/mongoose";
-import Articles from "@/models/Articles";
+import Articles from "@/models/ArticlesSchema";
 
 //route buat buat artikel
 export async function POST(request: Request) {
